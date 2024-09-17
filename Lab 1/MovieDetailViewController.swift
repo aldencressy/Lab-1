@@ -14,6 +14,8 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = movieTitle ?? "Movie Details"
+        
         titleLabel.text = "Title: \(movieTitle ?? "Unknown")"
         genreLabel.text = "Genre: \(movieGenre ?? "Unknown")"
         
