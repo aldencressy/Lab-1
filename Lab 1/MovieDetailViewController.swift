@@ -13,8 +13,8 @@ class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
         
         // Set the labels with the passed data
-        titleLabel.text = movieTitle
-        genreLabel.text = movieGenre
+        titleLabel.text = "Title: \(movieTitle ?? "Unknown")"
+        genreLabel.text = "Genre: \(movieGenre ?? "Unknown")"
     }
 }
 

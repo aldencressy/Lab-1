@@ -1,8 +1,8 @@
 import UIKit
 
 class MovieTableViewController: UITableViewController {
-    let movies = ["Inception", "Interstellar", "The Matrix", "The Dark Knight", "Pulp Fiction"]
-    let genres = ["Sci-Fi", "Action", "Fiction", "SuperHero", "Comedy"]
+    let movies = ["Inception", "Interstellar", "The Matrix", "The Dark Knight", "Oppenheimer"]
+    let genres = ["Sci-Fi", "Action", "Fiction", "SuperHero", "History"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

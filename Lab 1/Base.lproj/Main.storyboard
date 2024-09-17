@@ -57,13 +57,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UN2-UF-MIv">
-                                <rect key="frame" x="20" y="160" width="353" height="21"/>
+                                <rect key="frame" x="20" y="70.333333333333329" width="353" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUw-Kv-s6N">
-                                <rect key="frame" x="20" y="50" width="353" height="20.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUw-Kv-s6N">
+                                <rect key="frame" x="20" y="63" width="353" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,12 +73,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UN2-UF-MIv" firstAttribute="leading" secondItem="Z5U-TO-C5a" secondAttribute="leading" constant="20" id="0LK-TR-l6W"/>
+                            <constraint firstItem="UN2-UF-MIv" firstAttribute="firstBaseline" secondItem="VUw-Kv-s6N" secondAttribute="baseline" constant="20.333333333333332" symbolType="layoutAnchor" id="52i-MN-Pic"/>
                             <constraint firstItem="Z5U-TO-C5a" firstAttribute="trailing" secondItem="VUw-Kv-s6N" secondAttribute="trailing" constant="20" id="75z-d7-FfN"/>
                             <constraint firstItem="Z5U-TO-C5a" firstAttribute="trailing" secondItem="UN2-UF-MIv" secondAttribute="trailing" constant="20" id="83c-Jl-ghK"/>
                             <constraint firstItem="VUw-Kv-s6N" firstAttribute="centerX" secondItem="HOE-8M-CIh" secondAttribute="centerX" id="CTb-IJ-3fd"/>
                             <constraint firstItem="VUw-Kv-s6N" firstAttribute="leading" secondItem="Z5U-TO-C5a" secondAttribute="leading" constant="20" id="RPF-Bf-a00"/>
                             <constraint firstItem="VUw-Kv-s6N" firstAttribute="top" secondItem="Z5U-TO-C5a" secondAttribute="top" constant="50" id="cXA-S9-XOo"/>
-                            <constraint firstItem="UN2-UF-MIv" firstAttribute="top" secondItem="VUw-Kv-s6N" secondAttribute="bottom" constant="89.666666666666671" id="f00-pu-Kny" userLabel="Genre Label.top = Title Label.bottom + 20"/>
                             <constraint firstItem="UN2-UF-MIv" firstAttribute="centerX" secondItem="HOE-8M-CIh" secondAttribute="centerX" id="sek-TM-cSb"/>
                         </constraints>
                     </view>
