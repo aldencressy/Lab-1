@@ -1,8 +1,20 @@
-//
-//  MovieDetailViewController.swift
-//  Lab 1
-//
-//  Created by Alden Cressy on 9/16/24.
-//
+import UIKit
 
-import Foundation
+class MovieDetailViewController: UIViewController {
+    
+   
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    
+    var movieTitle: String?
+    var movieGenre: String?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Set the labels with the passed data
+        titleLabel.text = movieTitle
+        genreLabel.text = movieGenre
+    }
+}
+
