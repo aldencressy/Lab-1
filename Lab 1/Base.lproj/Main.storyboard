@@ -49,7 +49,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="4KH-hL-CNl"/>
                     <connections>
-                        <outlet property="genrePickerView" destination="TUb-D7-sbB" id="eS4-5P-SjC"/>
+                        <outlet property="genrePickerView" destination="TUb-D7-sbB" id="lYo-Qq-hWO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NmW-9V-xF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -97,9 +97,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="cwC-Ls-9qL"/>
                     <connections>
-                        <outlet property="genreLabel" destination="UN2-UF-MIv" id="ABr-Tx-Ogw"/>
-                        <outlet property="movieImageView" destination="B3f-SQ-yov" id="E9S-h0-xBe"/>
-                        <outlet property="titleLabel" destination="VUw-Kv-s6N" id="6CZ-4H-dv1"/>
+                        <outlet property="genreLabel" destination="UN2-UF-MIv" id="MEV-de-T6Z"/>
+                        <outlet property="movieImageView" destination="B3f-SQ-yov" id="CVD-nd-WQT"/>
+                        <outlet property="titleLabel" destination="VUw-Kv-s6N" id="JUP-jk-RSV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9Z-4S-j5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
