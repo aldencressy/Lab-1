@@ -23,7 +23,6 @@ class MovieDetailViewController: UIViewController {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let data = data, error == nil {
                     DispatchQueue.main.async {
-                        // Set the image on the main thread
                         self.movieImageView.image = UIImage(data: data)
                     }
                 }
