@@ -7,8 +7,11 @@ class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var watchedSwitch: UISwitch!
+    
     var movieManager: MovieManager!
     var movieID: Int?
+    var isWatched: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,14 @@ class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
         } else {
             movieImageView.image = UIImage(named: "placeholder_image") // Optional placeholder
         }
+        watchedSwitch.isOn = isWatched
     }
+    
+    @IBAction func watchedSwitchToggled(_ sender: UISwitch) {
+            isWatched = sender.isOn
+            print("Watched status is now: \(isWatched)") // so i could test if working ->maybe add more to this later 
+            
+        }
     
     private func loadImage(from url: URL) {
         URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
