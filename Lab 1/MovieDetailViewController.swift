@@ -1,12 +1,12 @@
 import UIKit
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
     
    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     var movieManager: MovieManager!
     var movieID: Int?
 
@@ -17,6 +17,10 @@ class MovieDetailViewController: UIViewController {
             print("Movie not found")
             return
         }
+        
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 4.0
 
         self.title = movie.title
         
@@ -43,4 +47,9 @@ class MovieDetailViewController: UIViewController {
             }
         }.resume()
     }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return movieImageView
+    }
+    
 }
