@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B8198722CA081B800DF3341 /* ImageZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8198712CA081B800DF3341 /* ImageZoomViewController.swift */; };
 		8BA4509B2C9913BB00F92002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4509A2C9913BB00F92002 /* AppDelegate.swift */; };
 		8BA4509D2C9913BB00F92002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4509C2C9913BB00F92002 /* SceneDelegate.swift */; };
 		8BA4509F2C9913BB00F92002 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4509E2C9913BB00F92002 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B8198712CA081B800DF3341 /* ImageZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomViewController.swift; sourceTree = "<group>"; };
 		8BA450972C9913BB00F92002 /* Lab 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lab 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4509A2C9913BB00F92002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BA4509C2C9913BB00F92002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				8BA4509E2C9913BB00F92002 /* ViewController.swift */,
 				8BA450B42C99228200F92002 /* MovieTableViewController.swift */,
 				8BA450B62C99248500F92002 /* MovieDetailViewController.swift */,
+				8B8198712CA081B800DF3341 /* ImageZoomViewController.swift */,
 				8BA450B82C9A5F3600F92002 /* Movie.swift */,
 				8BA450BA2C9A5F5700F92002 /* MovieManager.swift */,
 				8BA450A02C9913BB00F92002 /* Main.storyboard */,
@@ -163,6 +166,7 @@
 				8BA450B92C9A5F3600F92002 /* Movie.swift in Sources */,
 				8BA4509F2C9913BB00F92002 /* ViewController.swift in Sources */,
 				8BA4509B2C9913BB00F92002 /* AppDelegate.swift in Sources */,
+				8B8198722CA081B800DF3341 /* ImageZoomViewController.swift in Sources */,
 				8BA4509D2C9913BB00F92002 /* SceneDelegate.swift in Sources */,
 				EB3ED2082C9FB7E900070D8A /* FavoritesManager.swift in Sources */,
 			);
