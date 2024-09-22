@@ -7,12 +7,18 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var watchedSwitch: UISwitch!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var watchCountLabel: UILabel!
+    @IBOutlet weak var watchCountStepper: UIStepper!
+    @IBOutlet weak var ratingSlider: UISlider!
+    @IBOutlet weak var ratingLabel: UILabel!
     
     var movieManager: MovieManager!
     var movieID: Int?
     var isWatched: Bool = false
     var movie: Movie?
     var movieMarker: WatchedMoviesMarker?
+    var watchCount: Int = 1
+    var movieRating: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +44,11 @@ class MovieDetailViewController: UIViewController {
         // Check if the movie is watched and update the switch
         isWatched = movieManager.isMovieWatched(movie: movie)
         watchedSwitch.isOn = isWatched
+        
+        loadMovieData()
+        updateUI()
+        
+        updateUIForWatchedState(isWatched: isWatched)
 
         // Start blinking if the movie is marked as watched
         if isWatched {
@@ -57,6 +68,15 @@ class MovieDetailViewController: UIViewController {
         
         // Update the favorite button title
         updateFavoriteButton()
+        
+        // Initialize the stepper and slider
+        watchCountStepper.minimumValue = 1
+        watchCountStepper.value = Double(watchCount)
+        ratingSlider.minimumValue = 0
+        ratingSlider.maximumValue = 100
+        ratingSlider.value = Float(movieRating)
+        ratingSlider.isContinuous = true
+        
     }
 
     // Handle the switch toggle to mark a movie as watched/unwatched
@@ -65,6 +85,8 @@ class MovieDetailViewController: UIViewController {
 
         isWatched = sender.isOn
         movieManager.setMovieWatchedStatus(movie: movie, watched: isWatched)
+        
+        updateUIForWatchedState(isWatched: isWatched)
 
         if isWatched {
             startBlinking()
@@ -84,6 +106,55 @@ class MovieDetailViewController: UIViewController {
         }
 
         updateFavoriteButton()  // Update button text after action
+    }
+    
+    // Handle the stepper value change to update the watch count label
+        @IBAction func watchCountStepperChanged(_ sender: UIStepper) {
+            watchCount = Int(sender.value)  // Update the watch count
+            watchCountLabel.text = "Watched: \(watchCount) times"  // Update the label
+            saveMovieData()
+        }
+
+        // Handle the slider value change to update the rating label
+        @IBAction func ratingSliderChanged(_ sender: UISlider) {
+            movieRating = Int(sender.value)
+            ratingLabel.text = "Rating: \(movieRating)/100"
+            saveMovieData()
+        }
+    // Persist rating and watch count for the current movie using UserDefaults
+    private func saveMovieData() {
+        guard let movieID = movieID else { return }
+
+        // Save watch count and rating using movieID as the key
+        UserDefaults.standard.set(watchCount, forKey: "watchCount_\(movieID)")
+        UserDefaults.standard.set(movieRating, forKey: "movieRating_\(movieID)")
+    }
+
+    // Load saved rating and watch count for the current movie from UserDefaults
+    private func loadMovieData() {
+        guard let movieID = movieID else { return }
+
+        // Load watch count and rating using movieID as the key
+        watchCount = UserDefaults.standard.integer(forKey: "watchCount_\(movieID)")
+        movieRating = UserDefaults.standard.integer(forKey: "movieRating_\(movieID)")
+    }
+    
+    private func updateUI() {
+        // Set the stepper value and label
+        watchCountStepper.value = Double(watchCount)
+        watchCountLabel.text = "Watched: \(watchCount) times"
+
+        // Set the slider value and label
+        ratingSlider.value = Float(movieRating)
+        ratingLabel.text = "Rating: \(movieRating)/100"
+    }
+
+    // Update the UI elements based on whether the movie is marked as watched
+    private func updateUIForWatchedState(isWatched: Bool) {
+        watchCountStepper.isHidden = !isWatched
+        ratingSlider.isHidden = !isWatched
+        watchCountLabel.isHidden = !isWatched
+        ratingLabel.isHidden = !isWatched
     }
 
     // Update favorite button based on the movie's favorite status
@@ -144,6 +215,8 @@ class MovieDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopBlinking()
+        saveMovieData()
+        
     }
 
 }

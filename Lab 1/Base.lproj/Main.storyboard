@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n9W-A9-UcF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n9W-A9-UcF">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -122,6 +122,34 @@
                                     <action selector="watchedSwitchToggledWithSender:" destination="uOw-hz-JBO" eventType="valueChanged" id="cep-mg-FzY"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iS-Xw-58R">
+                                <rect key="frame" x="16" y="760" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FUd-Sx-dZf">
+                                <rect key="frame" x="178" y="756" width="201" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="ratingSliderChanged:" destination="uOw-hz-JBO" eventType="valueChanged" id="Szq-bl-Hdg"/>
+                                </connections>
+                            </slider>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="VqJ-5t-yv7">
+                                <rect key="frame" x="225" y="677" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="watchCountStepperChanged:" destination="uOw-hz-JBO" eventType="valueChanged" id="VZz-4q-pIU"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9x-tk-JOp">
+                                <rect key="frame" x="16" y="683" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z5U-TO-C5a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -150,7 +178,11 @@
                         <outlet property="favoriteButton" destination="2hK-uP-isB" id="1bo-fM-PNF"/>
                         <outlet property="genreLabel" destination="UN2-UF-MIv" id="MEV-de-T6Z"/>
                         <outlet property="movieImageView" destination="B3f-SQ-yov" id="CVD-nd-WQT"/>
+                        <outlet property="ratingLabel" destination="3iS-Xw-58R" id="8cM-e2-xz3"/>
+                        <outlet property="ratingSlider" destination="FUd-Sx-dZf" id="jRe-gv-QhJ"/>
                         <outlet property="titleLabel" destination="VUw-Kv-s6N" id="JUP-jk-RSV"/>
+                        <outlet property="watchCountLabel" destination="p9x-tk-JOp" id="Wb4-WA-R6s"/>
+                        <outlet property="watchCountStepper" destination="VqJ-5t-yv7" id="uQT-wF-8fg"/>
                         <outlet property="watchedSwitch" destination="N4I-i0-7OD" id="MQk-zq-UYU"/>
                     </connections>
                 </viewController>

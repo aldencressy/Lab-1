@@ -21,6 +21,7 @@
 		EB3ED2082C9FB7E900070D8A /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED2072C9FB7E900070D8A /* FavoritesManager.swift */; };
 		EB3ED20A2C9FBF8A00070D8A /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED2092C9FBF8A00070D8A /* FavoritesCollectionViewController.swift */; };
 		EB3ED20C2CA09BFF00070D8A /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED20B2CA09BFF00070D8A /* MovieCollectionViewCell.swift */; };
+		F932389B2CA0E23000B82035 /* WatchedMoviesMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = F932389A2CA0E23000B82035 /* WatchedMoviesMarker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		EB3ED2072C9FB7E900070D8A /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		EB3ED2092C9FBF8A00070D8A /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		EB3ED20B2CA09BFF00070D8A /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		F93238992CA0E23000B82035 /* WatchedMoviesMarker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchedMoviesMarker.h; sourceTree = "<group>"; };
+		F932389A2CA0E23000B82035 /* WatchedMoviesMarker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchedMoviesMarker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +80,6 @@
 				8BA4509C2C9913BB00F92002 /* SceneDelegate.swift */,
 				8BA4509E2C9913BB00F92002 /* ViewController.swift */,
 				8BA450B42C99228200F92002 /* MovieTableViewController.swift */,
-				EBF6B5512CA0AF1500F7AE4C /* WatchedMoviesMarker.h */,
-				EBF6B5522CA0AF1500F7AE4C /* WatchedMoviesMarker.m */,
 				8BA450B62C99248500F92002 /* MovieDetailViewController.swift */,
 				8B8198712CA081B800DF3341 /* ImageZoomViewController.swift */,
 				8BA450B82C9A5F3600F92002 /* Movie.swift */,
@@ -89,6 +90,8 @@
 				8BA450A82C9913BD00F92002 /* Info.plist */,
 				EB3ED2092C9FBF8A00070D8A /* FavoritesCollectionViewController.swift */,
 				EB3ED20B2CA09BFF00070D8A /* MovieCollectionViewCell.swift */,
+				F93238992CA0E23000B82035 /* WatchedMoviesMarker.h */,
+				F932389A2CA0E23000B82035 /* WatchedMoviesMarker.m */,
 			);
 			path = "Lab 1";
 			sourceTree = "<group>";
@@ -168,9 +171,9 @@
 				8BA450B52C99228200F92002 /* MovieTableViewController.swift in Sources */,
 				EB3ED20A2C9FBF8A00070D8A /* FavoritesCollectionViewController.swift in Sources */,
 				8BA450B72C99248500F92002 /* MovieDetailViewController.swift in Sources */,
-				EBF6B5532CA0AF1500F7AE4C /* WatchedMoviesMarker.m in Sources */,
 				8BA450BB2C9A5F5700F92002 /* MovieManager.swift in Sources */,
 				EB3ED20C2CA09BFF00070D8A /* MovieCollectionViewCell.swift in Sources */,
+				F932389B2CA0E23000B82035 /* WatchedMoviesMarker.m in Sources */,
 				8BA450B92C9A5F3600F92002 /* Movie.swift in Sources */,
 				8BA4509F2C9913BB00F92002 /* ViewController.swift in Sources */,
 				8BA4509B2C9913BB00F92002 /* AppDelegate.swift in Sources */,
