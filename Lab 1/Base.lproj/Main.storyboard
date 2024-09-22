@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" id="4KH-hL-CNl">
                         <barButtonItem key="rightBarButtonItem" image="star.fill" catalog="system" id="bzB-Iv-0Jk">
                             <connections>
-                                <segue destination="Iae-7Q-vgZ" kind="show" identifier="showFavorites" id="wBF-pM-bLV"/>
+                                <segue destination="Hqa-Uw-G4M" kind="show" identifier="showFavorites" id="wBF-pM-bLV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -85,18 +85,22 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-8b-HTy">
                                 <rect key="frame" x="16" y="157" width="361" height="661"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watched" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRd-QS-ZAX">
-                                        <rect key="frame" x="8" y="335" width="68" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hK-uP-isB">
-                                        <rect key="frame" x="107" y="399" width="148" height="35"/>
+                                        <rect key="frame" x="80" y="423" width="200" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Add to Favorites"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="favoriteButtonTapped:" destination="uOw-hz-JBO" eventType="touchUpInside" id="kC1-Cy-Xhg"/>
                                         </connections>
@@ -109,6 +113,20 @@
                                             <constraint firstAttribute="height" constant="300" id="mmF-cN-sea"/>
                                         </constraints>
                                     </imageView>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-i0-7OD">
+                                        <rect key="frame" x="100" y="356" width="49" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="watchedSwitchToggled:" destination="uOw-hz-JBO" eventType="valueChanged" id="2I8-iQ-LTb"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watched" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRd-QS-ZAX">
+                                        <rect key="frame" x="8" y="361" width="68" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="B3f-SQ-yov" firstAttribute="centerX" secondItem="h4e-8b-HTy" secondAttribute="centerX" id="1J3-35-MYU"/>
@@ -116,13 +134,6 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="Scz-yh-ka6"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="mlk-gX-uPO"/>
                             </scrollView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-i0-7OD">
-                                <rect key="frame" x="113" y="488" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="watchedSwitchToggled:" destination="uOw-hz-JBO" eventType="valueChanged" id="2I8-iQ-LTb"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z5U-TO-C5a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -149,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9Z-4S-j5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2016" y="755"/>
+            <point key="canvasLocation" x="2014.5038167938931" y="754.92957746478874"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="8xJ-Wr-Jeg">
@@ -178,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksy-vV-cGv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2886" y="-56"/>
+            <point key="canvasLocation" x="3811.450381679389" y="-56.338028169014088"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="65k-vw-AjA">
@@ -197,6 +208,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8Z-7M-Tr7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="180.91603053435114" y="-56.338028169014088"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BDq-DD-bCh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hqa-Uw-G4M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="XUD-2D-W9l"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gYt-7u-fQx">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Iae-7Q-vgZ" kind="relationship" relationship="rootViewController" id="j9D-aM-HFC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lFr-le-O5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2884.7328244274809" y="-56.338028169014088"/>
         </scene>
     </scenes>
     <resources>

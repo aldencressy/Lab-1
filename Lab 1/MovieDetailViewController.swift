@@ -43,6 +43,12 @@ class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
             movieImageView.image = UIImage(named: "placeholder_image") // Optional placeholder
         }
         watchedSwitch.isOn = isWatched
+        
+        
+        favoriteButton.layer.borderWidth = 2.0
+        favoriteButton.layer.borderColor = UIColor.black.cgColor
+        favoriteButton.layer.cornerRadius = 10
+        favoriteButton.layoutIfNeeded()
     }
     
     @IBAction func watchedSwitchToggled(_ sender: UISwitch) {

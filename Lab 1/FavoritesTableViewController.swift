@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesViewController: UITableViewController {
+class FavoritesTableViewController: UITableViewController {
     
     var favoriteMovies = [Movie]()
 
