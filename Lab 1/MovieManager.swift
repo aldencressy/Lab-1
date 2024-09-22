@@ -1,6 +1,8 @@
 class MovieManager {
     static let shared = MovieManager()
     
+    private var watchedMovies: Set<String> = []
+    
     var allMovies = [
         Movie(title: "Inception", genre: "Sci-Fi", imageURL: "https://i.ebayimg.com/images/g/LTQAAOSw~gxfU1Rd/s-l1200.jpg"),
         Movie(title: "Interstellar", genre: "Action", imageURL: "https://i.etsystatic.com/23402008/r/il/b658b2/2327469308/il_570xN.2327469308_492n.jpg"),
@@ -11,21 +13,36 @@ class MovieManager {
     
     let genres = ["All", "Sci-Fi", "Action", "Fiction", "SuperHero", "History"]
 
+    // MARK: - Watched Movie Logic
+    
+    func isMovieWatched(movie: Movie) -> Bool {
+        return watchedMovies.contains(movie.title)
+    }
+
+    func setMovieWatchedStatus(movie: Movie, watched: Bool) {
+        if watched {
+            watchedMovies.insert(movie.title)
+        } else {
+            watchedMovies.remove(movie.title)
+        }
+    }
+    
+    // MARK: - Movie Filtering Logic
 
     func getMovies(forGenre genre: String) -> [Movie] {
-           if genre == "All" {
-               return allMovies
-           } else {
-               return allMovies.filter { $0.genre == genre }
-           }
-       }
+        // Return all movies if genre is "All", otherwise filter by genre
+        return genre == "All" ? allMovies : allMovies.filter { $0.genre == genre }
+    }
     
     func getMovie(byID id: Int) -> Movie? {
-           guard id >= 0 && id < allMovies.count else { return nil }
-           return allMovies[id]
-       }
+        // Validate movie index and return corresponding movie, or nil if out of bounds
+        guard id >= 0 && id < allMovies.count else { return nil }
+        return allMovies[id]
+    }
     
+    // MARK: - Genre Handling
+
     func getGenres() -> [String] {
-            return genres
-        }
+        return genres
+    }
 }
