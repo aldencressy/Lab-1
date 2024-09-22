@@ -20,6 +20,7 @@
 		8BA450BB2C9A5F5700F92002 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA450BA2C9A5F5700F92002 /* MovieManager.swift */; };
 		EB3ED2082C9FB7E900070D8A /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED2072C9FB7E900070D8A /* FavoritesManager.swift */; };
 		EB3ED20A2C9FBF8A00070D8A /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED2092C9FBF8A00070D8A /* FavoritesTableViewController.swift */; };
+		EBF6B5532CA0AF1500F7AE4C /* WatchedMoviesMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF6B5522CA0AF1500F7AE4C /* WatchedMoviesMarker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,9 @@
 		8BA450BA2C9A5F5700F92002 /* MovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 		EB3ED2072C9FB7E900070D8A /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		EB3ED2092C9FBF8A00070D8A /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		EBF6B5502CA0AF1500F7AE4C /* Lab 1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lab 1-Bridging-Header.h"; sourceTree = "<group>"; };
+		EBF6B5512CA0AF1500F7AE4C /* WatchedMoviesMarker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchedMoviesMarker.h; sourceTree = "<group>"; };
+		EBF6B5522CA0AF1500F7AE4C /* WatchedMoviesMarker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchedMoviesMarker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				8BA4509C2C9913BB00F92002 /* SceneDelegate.swift */,
 				8BA4509E2C9913BB00F92002 /* ViewController.swift */,
 				8BA450B42C99228200F92002 /* MovieTableViewController.swift */,
+				EBF6B5512CA0AF1500F7AE4C /* WatchedMoviesMarker.h */,
+				EBF6B5522CA0AF1500F7AE4C /* WatchedMoviesMarker.m */,
 				8BA450B62C99248500F92002 /* MovieDetailViewController.swift */,
 				8B8198712CA081B800DF3341 /* ImageZoomViewController.swift */,
 				8BA450B82C9A5F3600F92002 /* Movie.swift */,
@@ -84,6 +90,7 @@
 				8BA450A52C9913BD00F92002 /* LaunchScreen.storyboard */,
 				8BA450A82C9913BD00F92002 /* Info.plist */,
 				EB3ED2092C9FBF8A00070D8A /* FavoritesTableViewController.swift */,
+				EBF6B5502CA0AF1500F7AE4C /* Lab 1-Bridging-Header.h */,
 			);
 			path = "Lab 1";
 			sourceTree = "<group>";
@@ -120,6 +127,7 @@
 				TargetAttributes = {
 					8BA450962C9913BB00F92002 = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -162,6 +170,7 @@
 				8BA450B52C99228200F92002 /* MovieTableViewController.swift in Sources */,
 				EB3ED20A2C9FBF8A00070D8A /* FavoritesTableViewController.swift in Sources */,
 				8BA450B72C99248500F92002 /* MovieDetailViewController.swift in Sources */,
+				EBF6B5532CA0AF1500F7AE4C /* WatchedMoviesMarker.m in Sources */,
 				8BA450BB2C9A5F5700F92002 /* MovieManager.swift in Sources */,
 				8BA450B92C9A5F3600F92002 /* Movie.swift in Sources */,
 				8BA4509F2C9913BB00F92002 /* ViewController.swift in Sources */,
@@ -318,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R7F5S3W42K;
@@ -336,6 +346,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Cardot.Lab-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lab 1/Lab 1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -346,6 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R7F5S3W42K;
@@ -364,6 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Cardot.Lab-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lab 1/Lab 1-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

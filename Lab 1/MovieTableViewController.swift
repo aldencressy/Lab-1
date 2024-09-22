@@ -6,22 +6,26 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
     
     var movieManager = MovieManager()
     var filteredMovies = [Movie]()
+    var movieMarkers: [IndexPath: WatchedMoviesMarker] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let favoritesButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self,action: #selector(showFavorites))
+
+        // Add Favorites button to navigation bar programmatically
+        let favoritesButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(showFavorites))
         navigationItem.rightBarButtonItem = favoritesButton
 
+        // Setup picker view delegate and data source
         genrePickerView.delegate = self
         genrePickerView.dataSource = self
 
+        // Load all movies initially
         filteredMovies = movieManager.getMovies(forGenre: "All")
     }
-    
-    @objc func showFavorites() {
-        print("Favorites button tapped")
-        performSegue(withIdentifier: "showFavorites", sender: nil)
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()  
     }
 
     // MARK: - UIPickerViewDataSource
@@ -55,18 +59,60 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
         let movie = filteredMovies[indexPath.row]
+        
         cell.textLabel?.text = movie.title
+        
+        if movieManager.isMovieWatched(movie: movie) {
+            cell.accessoryType = .checkmark
+            startBlinking(for: cell.textLabel, at: indexPath)
+        } else {
+            cell.accessoryType = .none
+            stopBlinking(at: indexPath)
+        }
+        
         return cell
     }
-    
-    // MARK: - Segue
-    
+
+    // MARK: - Blinking Logic using WatchedMoviesMarker
+
+    private func startBlinking(for label: UILabel?, at indexPath: IndexPath) {
+        if let label = label, movieMarkers[indexPath] == nil {
+            movieMarkers[indexPath] = WatchedMoviesMarker(label: label)
+            movieMarkers[indexPath]?.startBlinking()
+        }
+    }
+
+    private func stopBlinking(at indexPath: IndexPath) {
+        if let marker = movieMarkers[indexPath] {
+            marker.stopBlinking()
+            movieMarkers.removeValue(forKey: indexPath)
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        for marker in movieMarkers.values {
+            marker.stopBlinking()
+        }
+        movieMarkers.removeAll()
+    }
+
+    // MARK: - Favorites Button Action
+
+    @objc func showFavorites() {
+        print("Favorites button tapped")
+        performSegue(withIdentifier: "showFavorites", sender: nil)
+    }
+
+    // MARK: - Segue Handling
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMovieDetail",
            let destinationVC = segue.destination as? MovieDetailViewController,
            let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.movieManager = self.movieManager
-            destinationVC.movieID = indexPath.row
+            destinationVC.movieID = indexPath.row // Use index to pass selected movie
         }
     }
 }

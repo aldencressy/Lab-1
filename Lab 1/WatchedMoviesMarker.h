@@ -6,10 +6,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WatchedMoviesMarker : NSObject
+
+@property (nonatomic, strong) NSTimer *blinker;
+@property (nonatomic, strong) UILabel *hasBeenWatched;
+
+- (instancetype)initWithLabel:(UILabel *)label;
+- (void)startBlinking;
+- (void)stopBlinking;
 
 @end
 

@@ -8,5 +8,6 @@
 #ifndef Lab_1_Bridging_Header_h
 #define Lab_1_Bridging_Header_h
 
+#import "WatchedMoviesMarker.h"
 
 #endif /* Lab_1_Bridging_Header_h */
