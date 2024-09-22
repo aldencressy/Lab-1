@@ -83,7 +83,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hK-uP-isB">
-                                <rect key="frame" x="96" y="567" width="200" height="35"/>
+                                <rect key="frame" x="96" y="606" width="200" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add to Favorites"/>
                                 <userDefinedRuntimeAttributes>
@@ -101,12 +101,6 @@
                                     <action selector="favoriteButtonTapped:" destination="uOw-hz-JBO" eventType="touchUpInside" id="kC1-Cy-Xhg"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-i0-7OD">
-                                <rect key="frame" x="96" y="528" width="51" height="31"/>
-                                <connections>
-                                    <action selector="watchedSwitchToggled:" destination="uOw-hz-JBO" eventType="valueChanged" id="2I8-iQ-LTb"/>
-                                </connections>
-                            </switch>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3f-SQ-yov">
                                 <rect key="frame" x="96.666666666666686" y="169.33333333333337" width="200" height="300"/>
                                 <gestureRecognizers/>
@@ -116,12 +110,18 @@
                                     <constraint firstAttribute="height" constant="300" id="mmF-cN-sea"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watched" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRd-QS-ZAX">
-                                <rect key="frame" x="20" y="528" width="68" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Watched" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRd-QS-ZAX">
+                                <rect key="frame" x="16" y="572" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-i0-7OD">
+                                <rect key="frame" x="113" y="567" width="51" height="31"/>
+                                <connections>
+                                    <action selector="watchedSwitchToggled:" destination="uOw-hz-JBO" eventType="valueChanged" id="2I8-iQ-LTb"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z5U-TO-C5a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -158,7 +158,6 @@
             </objects>
             <point key="canvasLocation" x="2014.5038167938931" y="754.92957746478874"/>
         </scene>
-        <!--Favorites Table View Controller-->
         <!--Image Zoom View Controller-->
         <scene sceneID="def-Jk-o5I">
             <objects>
@@ -174,7 +173,7 @@
             </objects>
             <point key="canvasLocation" x="2990" y="753"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Favorites Table View Controller-->
         <scene sceneID="8xJ-Wr-Jeg">
             <objects>
                 <tableViewController id="Iae-7Q-vgZ" customClass="FavoritesTableViewController" customModule="Lab_1" customModuleProvider="target" sceneMemberID="viewController">
