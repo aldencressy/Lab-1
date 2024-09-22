@@ -1,12 +1,11 @@
 import UIKit
 
-class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
+class MovieDetailViewController: UIViewController {
     
    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var watchedSwitch: UISwitch!
     @IBOutlet weak var favoriteButton: UIButton!
     
@@ -27,10 +26,6 @@ class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
                 
         updateFavoriteButton()  // Update the button title
 
-        
-        scrollView.delegate = self
-        scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 4.0
 
         self.title = movie.title
         
@@ -44,6 +39,9 @@ class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         watchedSwitch.isOn = isWatched
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        movieImageView.isUserInteractionEnabled = true
+        movieImageView.addGestureRecognizer(tapGestureRecognizer)
         
         favoriteButton.layer.borderWidth = 2.0
         favoriteButton.layer.borderColor = UIColor.black.cgColor
@@ -95,8 +93,15 @@ class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return movieImageView
+    @objc func imageTapped() {
+        guard let image = movieImageView.image else { return }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let imageZoomVC = storyboard.instantiateViewController(withIdentifier: "ImageZoomViewController") as? ImageZoomViewController {
+            imageZoomVC.image = image
+            self.navigationController?.pushViewController(imageZoomVC, animated: true)
+        }
     }
+
     
 }
