@@ -9,11 +9,19 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let favoritesButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self,action: #selector(showFavorites))
+        navigationItem.rightBarButtonItem = favoritesButton
 
         genrePickerView.delegate = self
         genrePickerView.dataSource = self
 
         filteredMovies = movieManager.getMovies(forGenre: "All")
+    }
+    
+    @objc func showFavorites() {
+        print("Favorites button tapped")
+        performSegue(withIdentifier: "showFavorites", sender: nil)
     }
 
     // MARK: - UIPickerViewDataSource

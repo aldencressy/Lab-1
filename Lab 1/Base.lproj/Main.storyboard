@@ -47,7 +47,13 @@
                             <outlet property="delegate" destination="QNb-5Y-FkH" id="82M-Q5-cST"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4KH-hL-CNl"/>
+                    <navigationItem key="navigationItem" id="4KH-hL-CNl">
+                        <barButtonItem key="rightBarButtonItem" image="star.fill" catalog="system" id="bzB-Iv-0Jk">
+                            <connections>
+                                <segue destination="Iae-7Q-vgZ" kind="show" identifier="showFavorites" id="wBF-pM-bLV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="genrePickerView" destination="TUb-D7-sbB" id="lYo-Qq-hWO"/>
                     </connections>
@@ -79,8 +85,24 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-8b-HTy">
                                 <rect key="frame" x="16" y="157" width="361" height="661"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3f-SQ-yov">
-                                        <rect key="frame" x="96.666666666666686" y="8" width="200" height="300"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watched" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRd-QS-ZAX">
+                                        <rect key="frame" x="8" y="335" width="68" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hK-uP-isB">
+                                        <rect key="frame" x="107" y="399" width="148" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Add to Favorites"/>
+                                        <connections>
+                                            <action selector="favoriteButtonTapped:" destination="uOw-hz-JBO" eventType="touchUpInside" id="kC1-Cy-Xhg"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3f-SQ-yov">
+                                        <rect key="frame" x="80" y="8" width="200" height="300"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="A2J-LS-tup"/>
@@ -94,14 +116,6 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="Scz-yh-ka6"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="mlk-gX-uPO"/>
                             </scrollView>
-=======
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watched" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRd-QS-ZAX">
-                                <rect key="frame" x="16" y="493" width="68" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-i0-7OD">
                                 <rect key="frame" x="113" y="488" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -109,7 +123,6 @@
                                     <action selector="watchedSwitchToggled:" destination="uOw-hz-JBO" eventType="valueChanged" id="2I8-iQ-LTb"/>
                                 </connections>
                             </switch>
->>>>>>> Stashed changes
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z5U-TO-C5a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -126,6 +139,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cwC-Ls-9qL"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="2hK-uP-isB" id="1bo-fM-PNF"/>
                         <outlet property="genreLabel" destination="UN2-UF-MIv" id="MEV-de-T6Z"/>
                         <outlet property="movieImageView" destination="B3f-SQ-yov" id="CVD-nd-WQT"/>
                         <outlet property="scrollView" destination="h4e-8b-HTy" id="G8M-gK-AMy"/>
@@ -135,7 +149,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9Z-4S-j5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1944.2748091603053" y="-46.478873239436624"/>
+            <point key="canvasLocation" x="2016" y="755"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="8xJ-Wr-Jeg">
+            <objects>
+                <tableViewController id="Iae-7Q-vgZ" customClass="FavoritesViewController" customModule="Lab_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="gUd-w6-7dC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteMovieCell" id="2x3-Ax-QYh">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2x3-Ax-QYh" id="pcD-QV-rvD">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Iae-7Q-vgZ" id="rFP-EN-Zph"/>
+                            <outlet property="delegate" destination="Iae-7Q-vgZ" id="rMP-70-pRZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bkB-on-M2y"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksy-vV-cGv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2886" y="-56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="65k-vw-AjA">
@@ -157,6 +200,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
