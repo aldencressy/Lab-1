@@ -19,7 +19,8 @@
 		8BA450B92C9A5F3600F92002 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA450B82C9A5F3600F92002 /* Movie.swift */; };
 		8BA450BB2C9A5F5700F92002 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA450BA2C9A5F5700F92002 /* MovieManager.swift */; };
 		EB3ED2082C9FB7E900070D8A /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED2072C9FB7E900070D8A /* FavoritesManager.swift */; };
-		EB3ED20A2C9FBF8A00070D8A /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED2092C9FBF8A00070D8A /* FavoritesTableViewController.swift */; };
+		EB3ED20A2C9FBF8A00070D8A /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED2092C9FBF8A00070D8A /* FavoritesCollectionViewController.swift */; };
+		EB3ED20C2CA09BFF00070D8A /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ED20B2CA09BFF00070D8A /* MovieCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,8 @@
 		8BA450B82C9A5F3600F92002 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		8BA450BA2C9A5F5700F92002 /* MovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 		EB3ED2072C9FB7E900070D8A /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
-		EB3ED2092C9FBF8A00070D8A /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		EB3ED2092C9FBF8A00070D8A /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
+		EB3ED20B2CA09BFF00070D8A /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,8 @@
 				8BA450A32C9913BD00F92002 /* Assets.xcassets */,
 				8BA450A52C9913BD00F92002 /* LaunchScreen.storyboard */,
 				8BA450A82C9913BD00F92002 /* Info.plist */,
-				EB3ED2092C9FBF8A00070D8A /* FavoritesTableViewController.swift */,
+				EB3ED2092C9FBF8A00070D8A /* FavoritesCollectionViewController.swift */,
+				EB3ED20B2CA09BFF00070D8A /* MovieCollectionViewCell.swift */,
 			);
 			path = "Lab 1";
 			sourceTree = "<group>";
@@ -160,9 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BA450B52C99228200F92002 /* MovieTableViewController.swift in Sources */,
-				EB3ED20A2C9FBF8A00070D8A /* FavoritesTableViewController.swift in Sources */,
+				EB3ED20A2C9FBF8A00070D8A /* FavoritesCollectionViewController.swift in Sources */,
 				8BA450B72C99248500F92002 /* MovieDetailViewController.swift in Sources */,
 				8BA450BB2C9A5F5700F92002 /* MovieManager.swift in Sources */,
+				EB3ED20C2CA09BFF00070D8A /* MovieCollectionViewCell.swift in Sources */,
 				8BA450B92C9A5F3600F92002 /* Movie.swift in Sources */,
 				8BA4509F2C9913BB00F92002 /* ViewController.swift in Sources */,
 				8BA4509B2C9913BB00F92002 /* AppDelegate.swift in Sources */,
