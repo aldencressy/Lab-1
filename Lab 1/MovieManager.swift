@@ -1,5 +1,7 @@
 class MovieManager {
-      var allMovies = [
+    static let shared = MovieManager()
+    
+    var allMovies = [
         Movie(title: "Inception", genre: "Sci-Fi", imageURL: "https://i.ebayimg.com/images/g/LTQAAOSw~gxfU1Rd/s-l1200.jpg"),
         Movie(title: "Interstellar", genre: "Action", imageURL: "https://i.etsystatic.com/23402008/r/il/b658b2/2327469308/il_570xN.2327469308_492n.jpg"),
         Movie(title: "The Matrix", genre: "Fiction", imageURL: "https://m.media-amazon.com/images/I/71PfZFFz9yL._AC_UF894,1000_QL80_.jpg"),

@@ -18,11 +18,11 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
             
-            // Update the list when returning from detail view
-            favoriteMovies = FavoritesManager.shared.getFavorites()
-            tableView.reloadData()
+        // Update the list when returning from detail view
+        favoriteMovies = FavoritesManager.shared.getFavorites()
+        tableView.reloadData()
     }
     
 
@@ -38,6 +38,20 @@ class FavoritesTableViewController: UITableViewController {
         let movie = favoriteMovies[indexPath.row]
         cell.textLabel?.text = movie.title
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showMovieDetailFromFavorites", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMovieDetailFromFavorites",
+            let destinationVC = segue.destination as? MovieDetailViewController,
+            let indexPath = sender as? IndexPath {
+                let selectedMovie = favoriteMovies[indexPath.row]
+                destinationVC.movieManager = MovieManager.shared
+                destinationVC.movieID = MovieManager.shared.allMovies.firstIndex(where: { $0.title == selectedMovie.title })
+        }
     }
 
 }

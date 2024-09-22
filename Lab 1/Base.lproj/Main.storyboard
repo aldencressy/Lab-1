@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="2014.5038167938931" y="754.92957746478874"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Favorites Table View Controller-->
         <scene sceneID="8xJ-Wr-Jeg">
             <objects>
-                <tableViewController id="Iae-7Q-vgZ" customClass="FavoritesViewController" customModule="Lab_1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Iae-7Q-vgZ" customClass="FavoritesTableViewController" customModule="Lab_1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="gUd-w6-7dC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,6 +178,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="uOw-hz-JBO" kind="show" identifier="showMovieDetailFromFavorites" id="MLf-xk-zMy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -229,6 +232,9 @@
             <point key="canvasLocation" x="2884.7328244274809" y="-56.338028169014088"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MLf-xk-zMy"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
