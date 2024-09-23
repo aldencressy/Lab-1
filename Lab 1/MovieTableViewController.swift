@@ -10,10 +10,11 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
     @IBAction func SegmentedControlAction(_ sender: UISegmentedControl) {
         switch SegmentedControlColor.selectedSegmentIndex
         {
-        case 0: selectedTextColor = .green
-        case 1: selectedTextColor = .red
-        case 2: selectedTextColor = .blue
-        case 3: selectedTextColor = .black
+        case 0: selectedTextColor = .black
+        case 1: selectedTextColor = .green
+        case 2: selectedTextColor = .red
+        case 3: selectedTextColor = .blue
+        
         default: break
         }
         tableView.reloadData()
