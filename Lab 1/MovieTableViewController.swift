@@ -1,11 +1,13 @@
 import UIKit
 
-class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UISearchResultsUpdating {
 
     @IBOutlet weak var genrePickerView: UIPickerView!
     
     
     @IBOutlet weak var SegmentedControlColor: UISegmentedControl!
+    
+    
     
     @IBAction func SegmentedControlAction(_ sender: UISegmentedControl) {
         switch SegmentedControlColor.selectedSegmentIndex
@@ -20,10 +22,15 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
         tableView.reloadData()
         
     }
+    
+    
+    
     var movieManager = MovieManager()
     var filteredMovies = [Movie]()
+    var allMovies = [Movie]()
     var movieMarkers: [IndexPath: WatchedMoviesMarker] = [:]
     var selectedTextColor: UIColor = .white
+    var searchController: UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +45,37 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
         genrePickerView.dataSource = self
 
         // Load all movies initially
-        filteredMovies = movieManager.getMovies(forGenre: "All")
+        allMovies = movieManager.getMovies(forGenre: "All")
+        filteredMovies = allMovies
+        
+        // Initialize and configure the search controller
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Movies"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()  
+    }
+    
+    // MARK: - UISearchResultsUpdating
+
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text ?? ""
+        filterMovies(for: searchText)
+    }
+    
+    private func filterMovies(for searchText: String) {
+        if searchText.isEmpty {
+            filteredMovies = allMovies // Show all movies when no search text
+        } else {
+            filteredMovies = allMovies.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        }
+        tableView.reloadData()
     }
 
     // MARK: - UIPickerViewDataSource
@@ -64,7 +96,8 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedGenre = movieManager.getGenres()[row]
-        filteredMovies = movieManager.getMovies(forGenre: selectedGenre)
+        allMovies = movieManager.getMovies(forGenre: selectedGenre)
+        filterMovies(for: searchController.searchBar.text ?? "")
         tableView.reloadData()
     }
 
