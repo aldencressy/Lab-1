@@ -4,13 +4,30 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
 
     @IBOutlet weak var genrePickerView: UIPickerView!
     
+    
+    @IBOutlet weak var SegmentedControlColor: UISegmentedControl!
+    
+    @IBAction func SegmentedControlAction(_ sender: UISegmentedControl) {
+        switch SegmentedControlColor.selectedSegmentIndex
+        {
+        case 0: selectedTextColor = .green
+        case 1: selectedTextColor = .red
+        case 2: selectedTextColor = .blue
+        case 3: selectedTextColor = .black
+        default: break
+        }
+        tableView.reloadData()
+        
+    }
     var movieManager = MovieManager()
     var filteredMovies = [Movie]()
     var movieMarkers: [IndexPath: WatchedMoviesMarker] = [:]
+    var selectedTextColor: UIColor = .white
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        selectedTextColor = .black
         // Add Favorites button to navigation bar programmatically
         let favoritesButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(showFavorites))
         navigationItem.rightBarButtonItem = favoritesButton
@@ -61,6 +78,8 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
         let movie = filteredMovies[indexPath.row]
         
         cell.textLabel?.text = movie.title
+       
+        cell.textLabel?.textColor = selectedTextColor
         
         if movieManager.isMovieWatched(movie: movie) {
             cell.accessoryType = .checkmark
