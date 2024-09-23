@@ -102,7 +102,7 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
 
     @objc func showFavorites() {
         print("Favorites button tapped")
-        performSegue(withIdentifier: "showFavorites", sender: nil)
+        performSegue(withIdentifier: "showFavoritesCollectionView", sender: nil)
     }
 
     // MARK: - Segue Handling
