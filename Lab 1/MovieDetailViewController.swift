@@ -1,6 +1,6 @@
 import UIKit
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: UIViewController, UIScrollViewDelegate{
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
@@ -12,6 +12,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var ratingSlider: UISlider!
     @IBOutlet weak var ratingLabel: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     var movieManager: MovieManager!
     var movieID: Int?
     var isWatched: Bool = false
@@ -20,9 +21,14 @@ class MovieDetailViewController: UIViewController {
     var watchCount: Int = 1
     var movieRating: Int = 0
 
+    @IBOutlet weak var contentView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        scrollView.delegate = self
+    
         guard let movieID = movieID, let movie = movieManager.getMovie(byID: movieID) else {
             print("Movie not found")
             return
