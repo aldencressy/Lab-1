@@ -20,7 +20,6 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
         default: break
         }
         tableView.reloadData()
-        
     }
     
     
@@ -115,13 +114,14 @@ class MovieTableViewController: UITableViewController, UIPickerViewDelegate, UIP
        
         cell.textLabel?.textColor = selectedTextColor
         
+        stopBlinking(at: indexPath)
         if movieManager.isMovieWatched(movie: movie) {
             cell.accessoryType = .checkmark
             startBlinking(for: cell.textLabel, at: indexPath)
         } else {
             cell.accessoryType = .none
-            stopBlinking(at: indexPath)
         }
+        
         
         return cell
     }
